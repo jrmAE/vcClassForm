@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show Data</title>
+</head>
+
+<script>
+    // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+    // https://developers.google.com/web/updates/2016/01/urlsearchparams
+
+    function readParams(formName) { // formName = 'customer'
+        var queryString = window.location.search; // going to equal whatever is in the url address bar
+        var urlParams = new URLSearchParams(queryString); // gives you an array ['color', 'customer', 'town']
+        return urlParams.get(formName);
+    }
+</script>
+
+<body>
+
+    <h1>Display Data</h1>
+
+    <h2>Name</h2>
+    <p id="customername">
+        <script>
+            var cn = document.getElementById('customername');
+            cn.innerHTML = readParams('customer');
+        </script>
+    </p>
+
+    <h2>Favorite Color</h2>
+    <p id="favcolor">
+        <script>
+            var cn = document.getElementById('favcolor');
+            cn.innerHTML = readParams('color');
+        </script>
+    </p>
+
+</body>
+
+</html>
